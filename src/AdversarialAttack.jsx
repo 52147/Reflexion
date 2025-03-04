@@ -37,7 +37,7 @@ function AdversarialAttack() {
   };
 
   return (
-    <div className="max-w-3xl mx-auto p-6 bg-gray-700 shadow-lg rounded-lg">
+    <div className="max-w-3xl mx-auto p-6 bg-gray-800 shadow-lg rounded-lg">
       <h2 className="text-2xl font-bold text-white text-center mb-4">
         🛡️ 對抗式攻擊測試
       </h2>
@@ -67,7 +67,7 @@ function AdversarialAttack() {
         className={`mt-4 px-5 py-2 rounded font-semibold ${
           loading
             ? "bg-gray-500 cursor-not-allowed"
-            : "bg-red-600 hover:bg-red-700 text-white"
+            : "bg-red-600 hover:bg-red-800 text-white"
         }`}
       >
         {loading ? "測試中..." : "測試 AI 穩健性"}
@@ -77,13 +77,13 @@ function AdversarialAttack() {
         <div className="mt-6 p-4 bg-gray-800 text-white rounded-lg shadow-md">
           <h3 className="text-lg font-bold text-yellow-400">原始文本分析：</h3>
           <p className="mt-2">🔹 {result.original_text}</p>
-          <pre className="mt-2 bg-gray-700 p-3 rounded text-sm whitespace-pre-wrap break-words">
+          <pre className="mt-2 bg-gray-800 p-3 rounded text-sm whitespace-pre-wrap break-words">
             {JSON.stringify(result.original_analysis, null, 2)}
           </pre>
 
           <h3 className="text-lg font-bold text-red-400 mt-4">對抗樣本分析：</h3>
           <p className="mt-2">🔻 {result.adversarial_text}</p>
-          <pre className="mt-2 bg-gray-700 p-3 rounded text-sm whitespace-pre-wrap break-words">
+          <pre className="mt-2 bg-gray-800 p-3 rounded text-sm whitespace-pre-wrap break-words">
             {JSON.stringify(result.adversarial_analysis, null, 2)}
           </pre>
 

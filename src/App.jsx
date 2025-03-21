@@ -10,7 +10,7 @@ function App() {
         <h1 className="text-2xl font-bold text-center mb-4">🧠 AI心理分析 & 對抗性攻擊測試</h1>
 
         {/* 🔗 Tailwind 版的導覽按鈕 */}
-        <nav className="flex space-x-4 p-4 bg-gray-800 text-white rounded">
+        <nav className="flex space-x-4 p-4 bg-gray-800 text-white rounded mb-4">
           <Link to="/" className="px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded">
             🧠 心理分析
           </Link>

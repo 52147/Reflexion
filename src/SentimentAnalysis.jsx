@@ -117,7 +117,7 @@
 //           <p className="text-white">
 //             🔹 <b>Original Text:</b> {originalText}
 //           </p>
-          
+
 //           <SentimentChart data={result.psychology_analysis} />
 
 //           {/* ✅ Display Detailed Psychological Analysis Data */}
@@ -139,7 +139,7 @@
 //                 </p>
 //               ))}
 
-//             {/* 🔍 Optionally, display psychological factors 
+//             {/* 🔍 Optionally, display psychological factors
 //             <h3 className="text-lg font-bold text-blue-400 mt-4">🧠 Psychological Factors</h3>
 //             {result.psychology_analysis.psychology_factors &&
 //               Object.entries(result.psychology_analysis.psychology_factors).map(([key, value]) => (
@@ -314,7 +314,8 @@ function SentimentAnalysis() {
         Aggression: 10.2,
       },
     },
-    next_question: "When was the first time you felt like your best wasn’t good enough?",
+    next_question:
+      "When was the first time you felt like your best wasn’t good enough?",
   };
 
   const handleAnalyze = () => {
@@ -325,15 +326,27 @@ function SentimentAnalysis() {
     }, 1200);
   };
 
+  const handleSampleInput = () => {
+    setText(
+      `Lately, I’ve been experiencing overwhelming pressure at work. My supervisor constantly criticizes my performance, making me feel like no matter how hard I try, it’s never good enough. 
+The workload is heavy and the overtime is endless, which has made me start to doubt my own abilities. 
+I often suffer from insomnia at night and feel mentally unsettled during the day. 
+I’m worried that this situation will continue and eventually affect both my career development and personal life. 
+Please help me analyze my current psychological state, identify the sources of stress and anxiety, and provide practical suggestions to improve my emotional and work condition.`
+    );
+  };
+
   return (
     <div className="max-w-3xl mx-auto p-6 bg-gray-800 text-white shadow-lg rounded-lg">
-      <label className="block text-lg font-semibold mb-2">NLP Model (for display only):</label>
+      <label className="block text-lg font-semibold mb-2">
+        NLP Model (for display only):
+      </label>
       <select
         value={nlpModel}
         disabled
         className="w-full p-2 mb-4 bg-gray-900 border border-gray-600 rounded"
       >
-        <option value="gpt-3.5-turbo">🧠 GPT-3.5 Turbo</option>
+        <option value="gpt-3.5-turbo">🧠 GPT-4 Turbo</option>
       </select>
 
       <textarea
@@ -342,24 +355,35 @@ function SentimentAnalysis() {
         placeholder="Enter your thoughts..."
         className="w-full p-3 border border-gray-500 rounded bg-gray-900 text-white mb-4"
       />
-      <button
-        onClick={handleAnalyze}
-        disabled={loading}
-        className={`px-5 py-2 rounded font-semibold ${
-          loading ? "bg-gray-500 cursor-not-allowed" : "bg-blue-600 hover:bg-blue-700"
-        }`}
-      >
-        {loading ? "Analyzing..." : "Analyze"}
-      </button>
 
       <button
-        onClick={() => setDeepDiveMode(!deepDiveMode)}
-        className={`mt-4 ml-4 px-5 py-2 rounded font-semibold ${
-          deepDiveMode ? "bg-gray-500" : "bg-green-600 hover:bg-green-700"
-        }`}
+        onClick={handleSampleInput}
+        className="mb-4 px-4 py-2 bg-gray-600 hover:bg-gray-700 text-white rounded"
       >
-        {deepDiveMode ? "🔍 Stop Deep Dive" : "🔍 Activate Deep Dive"}
+        General Sample Input
       </button>
+      <div>
+        <button
+          onClick={handleAnalyze}
+          disabled={loading}
+          className={`px-5 py-2 rounded font-semibold ${
+            loading
+              ? "bg-gray-500 cursor-not-allowed"
+              : "bg-blue-600 hover:bg-blue-700"
+          }`}
+        >
+          {loading ? "Analyzing..." : "Analyze"}
+        </button>
+
+        <button
+          onClick={() => setDeepDiveMode(!deepDiveMode)}
+          className={`mt-4 ml-4 px-5 py-2 rounded font-semibold ${
+            deepDiveMode ? "bg-gray-500" : "bg-green-600 hover:bg-green-700"
+          }`}
+        >
+          {deepDiveMode ? "🔍 Stop Deep Dive" : "🔍 Activate Deep Dive"}
+        </button>
+      </div>
 
       {showResult && (
         <div className="mt-6 p-4 bg-gray-700 rounded-lg">
@@ -367,20 +391,24 @@ function SentimentAnalysis() {
             📊 Psychological Analysis
           </h3>
           <p className="text-white">
-            🧠 <b>Primary Emotional State:</b> {hardcodedResult.psychology_analysis.state}
+            🧠 <b>Primary Emotional State:</b>{" "}
+            {hardcodedResult.psychology_analysis.state}
           </p>
           <p className="text-white">
-            🔍 <b>Confidence Level:</b> {hardcodedResult.psychology_analysis.confidence}%
+            🔍 <b>Confidence Level:</b>{" "}
+            {hardcodedResult.psychology_analysis.confidence}%
           </p>
 
-          <h3 className="text-lg font-bold text-blue-400 mt-4">🎭 Emotion Breakdown</h3>
-          {Object.entries(hardcodedResult.psychology_analysis.emotion_scores).map(
-            ([key, value]) => (
-              <p key={key} className="text-white">
-                🔹 {key}: {value.toFixed(1)}%
-              </p>
-            )
-          )}
+          <h3 className="text-lg font-bold text-blue-400 mt-4">
+            🎭 Emotion Breakdown
+          </h3>
+          {Object.entries(
+            hardcodedResult.psychology_analysis.emotion_scores
+          ).map(([key, value]) => (
+            <p key={key} className="text-white">
+              🔹 {key}: {value.toFixed(1)}%
+            </p>
+          ))}
 
           <div className="mt-6 flex justify-center">
             <img
@@ -390,30 +418,51 @@ function SentimentAnalysis() {
             />
           </div>
 
-          <h3 className="text-lg font-bold text-green-400 mt-6">💬 Cognitive Analysis</h3>
+          <h3 className="text-lg font-bold text-green-400 mt-6">
+            💬 Cognitive Analysis
+          </h3>
           <p className="text-white">
-            Your stress appears to stem from a combination of external pressure (high
-            workload, managerial criticism) and internalized self-judgment. This dual
-            tension is leading to emotional exhaustion and self-doubt.
+            Your stress appears to stem from a combination of external pressure
+            (high workload, managerial criticism) and internalized
+            self-judgment. This dual tension is leading to emotional exhaustion
+            and self-doubt.
           </p>
 
-          <h3 className="text-lg font-bold text-green-400 mt-4">🔧 Suggestions</h3>
+          <h3 className="text-lg font-bold text-green-400 mt-4">
+            🔧 Suggestions
+          </h3>
           <ul className="list-disc pl-5 text-white">
-            <li>Set clear boundaries on work hours to restore personal rhythm.</li>
-            <li>Reframe your supervisor’s comments as external inputs, not internal truths.</li>
-            <li>Keep a nightly reflection journal to reduce cognitive load and improve sleep.</li>
-            <li>Consider professional mediation or HR support if the work environment remains hostile.</li>
+            <li>
+              Set clear boundaries on work hours to restore personal rhythm.
+            </li>
+            <li>
+              Reframe your supervisor’s comments as external inputs, not
+              internal truths.
+            </li>
+            <li>
+              Keep a nightly reflection journal to reduce cognitive load and
+              improve sleep.
+            </li>
+            <li>
+              Consider professional mediation or HR support if the work
+              environment remains hostile.
+            </li>
           </ul>
 
-          <h3 className="text-lg font-bold text-green-400 mt-4">🧐 Next Reflection Prompt</h3>
+          <h3 className="text-lg font-bold text-green-400 mt-4">
+            🧐 Next Reflection Prompt
+          </h3>
           <p className="text-white">"{hardcodedResult.next_question}"</p>
 
           {deepDiveMode && (
             <div className="mt-4 bg-gray-800 p-4 rounded">
-              <h3 className="text-lg font-bold text-pink-400">🔍 Deep Dive Analysis</h3>
+              <h3 className="text-lg font-bold text-pink-400">
+                🔍 Deep Dive Analysis
+              </h3>
               <p className="text-white">
-                Your supervisor may be projecting a need for control or validation, and their
-                harshness might not reflect your actual value. Try not to internalize this behavior.
+                Your supervisor may be projecting a need for control or
+                validation, and their harshness might not reflect your actual
+                value. Try not to internalize this behavior.
               </p>
             </div>
           )}
@@ -424,5 +473,3 @@ function SentimentAnalysis() {
 }
 
 export default SentimentAnalysis;
-
-

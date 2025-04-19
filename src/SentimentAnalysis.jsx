@@ -428,9 +428,7 @@ Please help me analyze my current psychological state, identify the sources of s
             and self-doubt.
           </p>
 
-          <h3 className="text-lg font-bold text-green-400 mt-4">
-            Suggestions
-          </h3>
+          <h3 className="text-lg font-bold text-green-400 mt-4">Suggestions</h3>
           <ul className="list-disc pl-5 text-white">
             <li>
               Set clear boundaries on work hours to restore personal rhythm.

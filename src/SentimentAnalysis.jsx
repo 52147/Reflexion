@@ -346,7 +346,7 @@ Please help me analyze my current psychological state, identify the sources of s
         disabled
         className="w-full p-2 mb-4 bg-gray-900 border border-gray-600 rounded"
       >
-        <option value="gpt-3.5-turbo">🧠 GPT-4 Turbo</option>
+        <option value="gpt-3.5-turbo">GPT-4 Turbo</option>
       </select>
 
       <textarea
@@ -388,25 +388,25 @@ Please help me analyze my current psychological state, identify the sources of s
       {showResult && (
         <div className="mt-6 p-4 bg-gray-700 rounded-lg">
           <h3 className="text-lg font-bold text-yellow-400">
-            📊 Psychological Analysis
+            Psychological Analysis
           </h3>
           <p className="text-white">
-            🧠 <b>Primary Emotional State:</b>{" "}
+            <b>Primary Emotional State:</b>{" "}
             {hardcodedResult.psychology_analysis.state}
           </p>
           <p className="text-white">
-            🔍 <b>Confidence Level:</b>{" "}
+            <b>Confidence Level:</b>{" "}
             {hardcodedResult.psychology_analysis.confidence}%
           </p>
 
           <h3 className="text-lg font-bold text-blue-400 mt-4">
-            🎭 Emotion Breakdown
+            Emotion Breakdown
           </h3>
           {Object.entries(
             hardcodedResult.psychology_analysis.emotion_scores
           ).map(([key, value]) => (
             <p key={key} className="text-white">
-              🔹 {key}: {value.toFixed(1)}%
+              {key}: {value.toFixed(1)}%
             </p>
           ))}
 
@@ -419,7 +419,7 @@ Please help me analyze my current psychological state, identify the sources of s
           </div>
 
           <h3 className="text-lg font-bold text-green-400 mt-6">
-            💬 Cognitive Analysis
+            Cognitive Analysis
           </h3>
           <p className="text-white">
             Your stress appears to stem from a combination of external pressure
@@ -429,7 +429,7 @@ Please help me analyze my current psychological state, identify the sources of s
           </p>
 
           <h3 className="text-lg font-bold text-green-400 mt-4">
-            🔧 Suggestions
+            Suggestions
           </h3>
           <ul className="list-disc pl-5 text-white">
             <li>
@@ -450,14 +450,14 @@ Please help me analyze my current psychological state, identify the sources of s
           </ul>
 
           <h3 className="text-lg font-bold text-green-400 mt-4">
-            🧐 Next Reflection Prompt
+            Next Reflection Prompt
           </h3>
           <p className="text-white">"{hardcodedResult.next_question}"</p>
 
           {deepDiveMode && (
             <div className="mt-4 bg-gray-800 p-4 rounded">
               <h3 className="text-lg font-bold text-pink-400">
-                🔍 Deep Dive Analysis
+                Deep Dive Analysis
               </h3>
               <p className="text-white">
                 Your supervisor may be projecting a need for control or

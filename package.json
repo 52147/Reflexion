@@ -10,6 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@headlessui/react": "^2.2.2",
+    "@radix-ui/react-dialog": "^1.1.13",
     "@radix-ui/react-tooltip": "^1.2.0",
     "@tailwindcss/vite": "^4.0.8",
     "@vercel/analytics": "^1.5.0",

@@ -8,12 +8,20 @@ function App() {
     <Router>
       <div className="max-w-3xl mx-auto p-6 bg-gray-700 shadow-lg rounded-lg">
         <h1 className="text-2xl font-bold text-center mb-4">Reflexion</h1>
-        <h2 className="text-lg text-center mb-4">AI-Powered Psychological Analysis</h2>
-
+        <h2 className="text-lg text-center mb-4">
+          AI-Powered Psychological Analysis
+        </h2>
+        <p className="text-red-300 font-bold mb-4 text-center"> 
+          This is a demo version. API connection is currently disabled due to
+          inference cost.
+        </p>
         {/* 🔗 Tailwind 版的導覽按鈕 */}
         <nav className="flex space-x-4 p-4 bg-gray-800 text-white rounded mb-4">
-          <Link to="/" className="px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded">
-             Psychological Analysis
+          <Link
+            to="/"
+            className="px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded"
+          >
+            Psychological Analysis
           </Link>
           {/* <Link to="/adversarial" className="px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded">
             🛡️ Adversarial Attack Testing

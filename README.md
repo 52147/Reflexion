@@ -74,7 +74,7 @@ Make sure to create a .env file if you plan to connect to actual APIs.
 
 ---
 
-## 🛣️ Roadmap
+## Roadmap
 
 - [ ] GPT-4 API integration with adaptive prompt trees  
 - [ ] Mood history and timeline tracking  
@@ -99,8 +99,8 @@ MIT License — for research and non-commercial purposes.
 
 ---
 
-## 🙋‍♀Author
+## Author
 
 **Shou-Tzu Han**  
 AI x Psychology Engineer ・ Boston University M.S.  
-📧 [Email](mailto:debrah@bu.edu) ・ 🌐 [Website](https://www.reflexionai.dev)
+[Email](mailto:debrah@bu.edu) ・ [Website](https://www.reflexionai.dev)
